@@ -28,35 +28,6 @@
             <button><li><a href="signup.html">Sign Up</a></li></form></button>
             
         </form>
-        <script>
-            document.getElementById('login-form').addEventListener('submit', async function(event) {
-                event.preventDefault();
-    
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-    
-                const response = await fetch('/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password })
-                });
-    
-                const data = await response.json();
-    
-                const messageElement = document.getElementById('message');
-                if (data.success) {
-                    messageElement.textContent = data.message;
-                    messageElement.style.color = 'green';
-                    // Redirect to dashboard or another page
-                    // window.location.href = '/dashboard.html';
-                } else {
-                    messageElement.textContent = data.message;
-                    messageElement.style.color = 'red';
-                }
-            });
-        </script>
     </body>
     </html>
     </div>
